@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+   <title>House Price Prediction</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+      }
+
+      html,
+      body,
+      header,
+      #intro {
+         height: 100%;
+      }
+
+      img {
+         display: block;
+         max-width: 100%;
+         height: auto;
+      }
+
+      .btn.pb {
+         margin-top: 6rem;
+         background-color: dark;
+      }
+   </style>
+</head>
+
+<body>
+
+      <div id="intro" class="container-fluid view ">
+        <h1 class="text-center text-capitalize pt-5">Melbourne House Price Prediction</h1>
+        <hr class="w-75 mx-auto pt-5">
+        <div class="row mb-5">
+           <div class="col-lg-6 col-md-6 col-12 my-auto">
+             <img src="../static/images/house.jpg" class="float-left">
+
+           </div>
+           <div class="col-lg-6 col-md-6 col-12">
+             <form action="{{ url_for('predictHP')}}" method="post">
+                <div class="form-group">
+                   <label for="Location">Location</label>
+                   <select class="form-control" id="Location" name="Location" required="required">
+                      <option value="0">Reservoir</option>
+                      <option value="1">Bentleigh East</option>
+                      <option value="2">Richmond</option>
+                      <option value="3">Craigieburn</option>
+                      <option value="4">Preston</option>
+                      <option value="5">Mount Waverley</option>
+                      <option value="6">Brunswick</option>
+                      <option value="7">Cheltenham</option>
+                      <option value="8">Northcote</option>
+                      <option value="9">Glenroy</option>
+                      <option value="10">Essendon</option>
+                      <option value="11">Glen Waverley</option>
+                      <option value="12">Coburg</option>
+                      <option value="13">Mill Park</option>
+                      <option value="14">Pascoe Vale</option>
+                      <option value="15">Other</option>
+                   </select>
+                </div>
+
+                 <div class="form-group">
+                    <label for="Rooms">Rooms</label>
+                    <input class="form-control" type="number" id="Rooms" name="Rooms" required="required" placeholder="Rooms">
+                 </div>
+                 <div class="form-group">
+                    <label for="Type">Type</label>
+                    <select class="form-control" id="Type" name="Type" required="required">
+                       <option value="0">House</option>
+                       <option value="1">Unit</option>
+                       <option value="2">Townhouse</option>
+                    </select>
+                 </div>
+
+                 <div class="form-group">
+                    <label for="Postcode">Postcode(3000-3977)</label>
+                    <input class="form-control" type="number" id="Postcode" name="Postcode" required="required" placeholder="Postcode">
+                 </div>
+
+                 <div class="form-group">
+                    <label for="Distance">Distance(0.0-35.4)</label>
+                    <input class="form-control" type="float" id="Distance" name="Distance" required="required" placeholder="Distance">
+                 </div>
+
+                 <div class="form-group">
+                    <label for="Year">Year Of Sold</label>
+                    <select class="form-control" id="Year" name="Year" required="required">
+                       <option value="0">2016</option>
+                       <option value="1">2017</option>
+                       <option value="2">2018</option>
+                    </select>
+                 </div>
+                 <button type="submit" class="btn btn-danger">Predict</button>
+             </form>
+             <a class="btn btn-dark pb" href="/" role="button">Back</a>
+           </div>
+        </div>
+     </div>
+
+   </form>
+
+</body>
+
+</html>
