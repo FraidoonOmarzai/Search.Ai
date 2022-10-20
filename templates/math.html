@@ -1,0 +1,57 @@
+<html lang='en'>
+
+<head>
+   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+   <!-- adding favicon -->
+   <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.icon') }}">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+   <!-- Custom styling -->
+   <link rel='stylesheet' href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+   <!-- Custom font -->
+   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap'>
+
+   <!-- tfjs -->
+   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0/dist/tf.min.js"></script>
+
+   <!-- opencv -->
+   <script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript"></script>
+
+   <script src="{{ url_for('static', filename='js/drawing.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/processing.js') }}"></script>
+
+</head>
+
+<body>
+   <div class="imgg math"></div>
+   <div class="container">
+      <div class="math-title">
+         <h1 id="title">Detect Drawn Number</h1>
+
+         <canvas id="my_canvas" width="150" height="170"></canvas>
+
+         <h1 class="num">Predected Number: <span id='num'></span> </h1>
+
+         <button id='checkAnswer' class='checkAnswer' value='Check'>Detect Number</button>
+      </div>
+
+      <a class="btn btn-dark pb" href="/" role="button">Back</a>
+
+   </div>
+   <script>
+      loadModel()
+      prepareCanvas()
+
+      document.getElementById('checkAnswer').addEventListener('click', function() {
+         predictImage()
+         Check()
+         cleanCanvas()
+      })
+   </script>
+
+</body>
+
+</html>
